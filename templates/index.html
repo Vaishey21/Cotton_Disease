@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+    <center class="body-style">
+        <div class="bg">
+            <h1 style="color: aliceblue;">Prediction Result</h1>
+            <form id="uploadForm" class="upload-label" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileInput">
+                <button type="button" onclick="predict()">Predict</button>
+            </form>
+            <div id="result" class="img-preview"></div>
+        </div>
+
+    </center>
+    <script>
+        function predict() {
+            var formData = new FormData(document.getElementById("uploadForm"));
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    var resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = "<p>Predicted disease: " + data.predicted_disease + "</p>";
+                    resultDiv.innerHTML += "<p>Confidence level: " + data.confidence + "</p>";
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>
