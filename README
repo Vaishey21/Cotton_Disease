@@ -1,0 +1,37 @@
+Cotton Leaf Disease Prediction
+This repository contains the implementation of a machine learning model to predict cotton leaf diseases. The model classifies cotton leaves into the following categories:
+
+Bacterial Blight
+Target Spot
+Healthy
+Curl Virus
+Fusarium Wilt
+The model is designed to be deployed as a web application, enabling users to upload leaf images and receive real-time predictions on the disease type.
+
+Table of Contents
+Overview
+
+Dataset
+Model Training
+Usage
+Model Performance
+
+Overview
+This project aims to provide a high-accuracy model capable of diagnosing cotton leaf diseases using image classification techniques. The web application allows farmers and agronomists to easily identify and manage diseases affecting cotton plants.
+
+Dataset
+The dataset consists of images of cotton leaves categorized into five classes:
+
+Bacterial Blight
+Target Spot
+Healthy
+Curl Virus
+Fusarium Wilt
+The dataset can be sourced from agricultural image databases or Kaggle. Ensure the dataset is split into training, validation, and testing sets for model training.
+
+Model Training
+The model is built using a Convolutional Neural Network (CNN). Training involves the following steps:
+
+Preprocess Images: Images are resized, normalized, and augmented (if necessary).
+Model Architecture: A CNN model is designed to extract features from the images.
+Training: The model is trained on the dataset to minimize classification error.
